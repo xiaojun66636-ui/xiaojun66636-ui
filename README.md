@@ -4,6 +4,22 @@ TypeScript 小库，零运行时依赖。每份都能在 Node 22 里直接跑测
 
 ## 仓库
 
+### [breaker](https://github.com/xiaojun66636-ui/breaker)
+
+熔断器。连续失败到阈值就打开，冷却后半开，只放一个试探请求。时钟从外面注入。
+
+### [bloomset](https://github.com/xiaojun66636-ui/bloomset)
+
+布隆过滤器。说「没有」就一定没有，说「有」可能误判。附误判率公式。
+
+### [heapq](https://github.com/xiaojun66636-ui/heapq)
+
+二叉堆。`push` 和 `pop` 都是 O(log n)。默认最小堆，比较函数可以改成最大堆。
+
+### [prefixtrie](https://github.com/xiaojun66636-ui/prefixtrie)
+
+前缀树。按前缀列出 key。删叶子会剪枝，删中间节点只去掉它自己的值。
+
 ### [lrushelf](https://github.com/xiaojun66636-ui/lrushelf)
 
 O(1) LRU。哈希表定位，双向链表排新旧，头尾是哨兵节点。`get` 会刷新热度，`has` 不会。
@@ -40,4 +56,4 @@ node --experimental-strip-types --test test/*.test.ts
 
 ## 范围
 
-缓存、一致性哈希、路由、重试、限流、diff、运动。不堆徽章，不写没跑过的数字。
+熔断、布隆过滤器、堆、前缀树、缓存、一致性哈希、路由、重试、限流、diff。不堆徽章，不写没跑过的数字。

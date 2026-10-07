@@ -1,8 +1,22 @@
 # 小军
 
-TypeScript 小库，零运行时依赖。每份都能在 Node 22 里直接跑测试，不需要安装包。
+TypeScript，零运行时依赖。前面三个是能跑起来的小系统，后面是单数据结构。每份都能在 Node 22 里直接跑测试，不需要安装包。
 
-## 仓库
+## 系统
+
+### [tinysql](https://github.com/xiaojun66636-ui/tinysql)
+
+内存 SQL。自己的词法、语法和执行器。`AND` 比 `OR` 紧，括号能改结合。没有 JOIN，也不假装兼容 Postgres。
+
+### [kvline](https://github.com/xiaojun66636-ui/kvline)
+
+Redis 协议的一小截。RESP 拆包，半包不会拆错。`SET`/`GET`/`INCR`/`EXPIRE`，过期是下次读的时候懒删除。能起 TCP 服务。
+
+### [walstore](https://github.com/xiaojun66636-ui/walstore)
+
+带 CRC 的预写日志。每次写都 fsync。进程重启能重放。写到一半的尾巴会被截掉，不会把前面的记录读坏。
+
+## 组件
 
 ### [breaker](https://github.com/xiaojun66636-ui/breaker)
 
@@ -56,4 +70,4 @@ node --experimental-strip-types --test test/*.test.ts
 
 ## 范围
 
-熔断、布隆过滤器、堆、前缀树、缓存、一致性哈希、路由、重试、限流、diff。不堆徽章，不写没跑过的数字。
+SQL、Redis 协议、预写日志，再加上熔断、布隆过滤器、堆、前缀树、缓存、一致性哈希、路由、重试、限流。不堆徽章，不写没跑过的数字。

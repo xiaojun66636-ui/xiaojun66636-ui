@@ -4,6 +4,22 @@ TypeScript 小库，零运行时依赖。每份都能在 Node 22 里直接跑测
 
 ## 仓库
 
+### [lrushelf](https://github.com/xiaojun66636-ui/lrushelf)
+
+O(1) LRU。哈希表定位，双向链表排新旧，头尾是哨兵节点。`get` 会刷新热度，`has` 不会。
+
+### [hashring](https://github.com/xiaojun66636-ui/hashring)
+
+一致性哈希。虚拟节点，查找是二分。删掉一个节点，只搬走原来落在它弧上的 key。
+
+### [pathroute](https://github.com/xiaojun66636-ui/pathroute)
+
+路径路由。静态段优先于 `:param`，`:param` 优先于末尾 `*wildcard`。同分先注册的赢。
+
+### [backoff](https://github.com/xiaojun66636-ui/backoff)
+
+指数退避加 full jitter，再加一个可注入 sleep 的 retry。不该重试的错误用 `shouldRetry` 挡掉。
+
 ### [springstep](https://github.com/xiaojun66636-ui/springstep)
 
 界面运动用的弹簧积分器。走 `m x'' + c x' + k x = 0` 的解析解，掉帧不会像前向欧拉那样炸掉。欠阻尼、临界阻尼、过阻尼三条分支都有测试。
@@ -24,4 +40,4 @@ node --experimental-strip-types --test test/*.test.ts
 
 ## 范围
 
-运动、diff、运行时限流。不堆徽章，不写没跑过的数字。
+缓存、一致性哈希、路由、重试、限流、diff、运动。不堆徽章，不写没跑过的数字。
